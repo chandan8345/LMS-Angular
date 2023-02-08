@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -71,12 +72,14 @@ export class AppComponent implements OnInit {
       this.apiservice.updateEmployee(this.addEmployee.value, this.employee?.[0]['id']).subscribe((res) => {
         this.getAllEmployee();
         this.addEmployee.reset();
+        Swal.fire('Message', 'Data Updated Successfully!', 'success');
       });
     }
     else {
       this.apiservice.createNewEmployee(this.addEmployee.value).subscribe((res) => {
         this.addEmployee.reset();
         this.getAllEmployee();
+        Swal.fire('Message', 'Data Saved Successfully!', 'success');
       });
     }
   }
@@ -85,6 +88,7 @@ export class AppComponent implements OnInit {
     this.apiservice.deleteEmployee(id).subscribe((res) => {
       this.getAllEmployee();
       this.addEmployee.reset();
+      Swal.fire('Message', 'Data Deleted Successfully!', 'success');
     });
   }
 
