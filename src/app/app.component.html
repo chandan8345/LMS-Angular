@@ -144,21 +144,29 @@
             <table id="example" class="table table-striped table-bordered">
                 <thead class="thead-primary">
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">LeadId</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Agent</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Source</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Entry Date</th>
                         <th scope="col">Action</th>
                     </tr>
                     <tr *ngFor="let lead of leads">
+                        <td>{{ lead.sl }}</td>
                         <td>{{ lead.LeadId }}</td>
+                        <td>{{ lead.ProductName }}</td>
+                        <td>{{ lead.Agent }}</td>
                         <td>{{ lead.FirstName }}</td>
                         <td>{{ lead.LastName }}</td>
                         <td>{{ lead.Email }}</td>
                         <td>{{ lead.Source }}</td>
                         <td>{{ lead.Status }}</td>
+                        <td>{{ lead.CreatedAt | date: 'dd-MM-yyyy' }}</td>
                         <td><button class="btn btn-primary" (click)="editAssignment(lead.LeadId)">Edit</button> | <button
                                 class="btn btn-danger" (click)="deleteAssignment(lead.LeadId)">Delete</button></td>
                     </tr>
