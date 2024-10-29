@@ -9,30 +9,53 @@ export class ApiService {
 
   constructor(private _http:HttpClient) { }
 
-  apiUrl = 'https://localhost:44349/api/test';
+  apiUrl = 'http://chandan.runasp.net/api/Lead';
 
-  getAllEmployee(){
-    return this._http.get(this.apiUrl);
+  getAllLeads(){
+    return this._http.get(`${this.apiUrl}`);
   }
 
-  getAllDesignation(){
-    return this._http.get('https://localhost:44349/api/test/Designation');
+  createLead(data:any){
+    console.log(data);
+    return this._http.post(`${this.apiUrl}`, data);
   }
 
-  createNewEmployee(data:any){
-    return this._http.post('https://localhost:44349/api/test/employeeInsert', data);
+  updateLead(data:any,LeadId:number){
+    return this._http.put(`${this.apiUrl}/${LeadId}`, data);
   }
 
-  updateEmployee(data:any,id:number){
-    return this._http.put(`${this.apiUrl}/${id}`, data);
+  getLeadsByID(LeadId:number){
+    return this._http.get(`${this.apiUrl}/${LeadId}`);
   }
 
-  deleteEmployee(id:number){
-    return this._http.delete(`${this.apiUrl}/${id}`);
+  deleteEmployee(LeadId:number){
+    return this._http.delete(`${this.apiUrl}/${LeadId}`);
   }
 
-  getEmployeeByID(id:number){
-    return this._http.get(`${this.apiUrl}/${id}`);
+  getAllProduct(){
+    var productUrl='http://chandan.runasp.net/api/Product';
+    return this._http.get(`${productUrl}`);
   }
+
+  getAllAgent(){
+    var agentUrl='http://chandan.runasp.net/api/Agent';
+    return this._http.get(`${agentUrl}`);
+  }
+
+  // createNewEmployee(data:any){
+  //   return this._http.post('https://localhost:44349/api/test/employeeInsert', data);
+  // }
+
+  // updateEmployee(data:any,id:number){
+  //   return this._http.put(`${this.apiUrl}/${id}`, data);
+  // }
+
+  // deleteEmployee(id:number){
+  //   return this._http.delete(`${this.apiUrl}/${id}`);
+  // }
+
+  // getEmployeeByID(id:number){
+  //   return this._http.get(`${this.apiUrl}/${id}`);
+  // }
 
 }
