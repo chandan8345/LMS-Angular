@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private _http:HttpClient) { }
 
-  apiUrl = 'http://chandan.runasp.net/api/Lead';
+  apiUrl = '//chandan.runasp.net/api/Lead';
 
   getAllLeads(){
     return this._http.get(`${this.apiUrl}`);
@@ -33,12 +33,12 @@ export class ApiService {
   }
 
   getAllProduct(){
-    var productUrl='http://chandan.runasp.net/api/Product';
+    var productUrl='//chandan.runasp.net/api/Product';
     return this._http.get(`${productUrl}`);
   }
 
   getAllAgent(){
-    var agentUrl='http://chandan.runasp.net/api/Agent';
+    var agentUrl='//chandan.runasp.net/api/Agent';
     return this._http.get(`${agentUrl}`);
   }
 
