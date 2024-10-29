@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private _http:HttpClient) { }
 
-  apiUrl = '//chandan.runasp.net/api/Lead';
+  apiUrl = 'http://chandan.runasp.net/api/Lead';
 
   getAllLeads(){
     return this._http.get(`${this.apiUrl}`);
@@ -33,29 +33,13 @@ export class ApiService {
   }
 
   getAllProduct(){
-    var productUrl='//chandan.runasp.net/api/Product';
+    var productUrl='http://chandan.runasp.net/api/Product';
     return this._http.get(`${productUrl}`);
   }
 
   getAllAgent(){
-    var agentUrl='//chandan.runasp.net/api/Agent';
+    var agentUrl='http://chandan.runasp.net/api/Agent';
     return this._http.get(`${agentUrl}`);
   }
-
-  // createNewEmployee(data:any){
-  //   return this._http.post('https://localhost:44349/api/test/employeeInsert', data);
-  // }
-
-  // updateEmployee(data:any,id:number){
-  //   return this._http.put(`${this.apiUrl}/${id}`, data);
-  // }
-
-  // deleteEmployee(id:number){
-  //   return this._http.delete(`${this.apiUrl}/${id}`);
-  // }
-
-  // getEmployeeByID(id:number){
-  //   return this._http.get(`${this.apiUrl}/${id}`);
-  // }
 
 }

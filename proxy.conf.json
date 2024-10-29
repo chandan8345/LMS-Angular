@@ -1,0 +1,7 @@
+{
+    "/": {
+      "target": "http://chandan.runasp.net",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
